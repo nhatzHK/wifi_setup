@@ -61,7 +61,7 @@ function kill_all {
 #------------------------------------------------------------------------------#
 #                                VARIABLES                                     #
 #------------------------------------------------------------------------------#
-HELP='./wifi_setup.help'                                    # Help file location
+HELP='/opt/nhatz/wifi_setup.help'                           # Help file location
 PROMPT='[WIFI_SETUP] : '                                             # Prompt :)
 declare interface                                  # Interface to use, i.e wlan0
 declare e_ssid                                                    # Network name
@@ -82,6 +82,8 @@ if [[ $# -lt 2 ]]; then
     exit 1
 fi
 
+# Save arguments in case whoami != root
+args=("$@")
 
 while [[ $# -gt 1 ]]
 do
@@ -121,14 +123,13 @@ done
 # Putting this down there because you don't need root to ask for help          #
 # You don't need root to call the script wrongly neither                       #
 # -----------------------------------------------------------------------------#
-[ "$(whoami)" != "root" ] && exec sudo -- "$0" "$@"
+[ "$(whoami)" != "root" ] && exec sudo --  "$0" "${args[@]}"
 
 ################################################################################
 
 #------------------------------------------------------------------------------#
 # Validity checks and functions calling                                        #
 #------------------------------------------------------------------------------#
-
 # If both the interface and the e?ssid are provided
 if [[ -n "$interface" ]] && [[ -n "$e_ssid" ]]; then
  
@@ -149,6 +150,6 @@ else
     exit 3
 fi
 
-###############################################################################
-#                                      THE END                                #
-###############################################################################
+################################################################################
+#                                      THE END                                 #
+################################################################################
