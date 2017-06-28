@@ -61,7 +61,7 @@ function kill_all {
 #------------------------------------------------------------------------------#
 #                                VARIABLES                                     #
 #------------------------------------------------------------------------------#
-HELP='/opt/nhatz/wifi_setup.help'                           # Help file location
+HELP='wifi_setup.help'                           # Help file location
 PROMPT='[WIFI_SETUP] : '                                             # Prompt :)
 declare interface                                  # Interface to use, i.e wlan0
 declare e_ssid                                                    # Network name
