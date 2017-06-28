@@ -1,7 +1,7 @@
 # WIFI_SETUP
  
 ### Usage :                                                                      
-`wifi_setup -i interface -i essid [-p psswd]`                                
+`wifi_setup -i interface -e essid [-p psswd]`                                
                                                                               
 **Each options must, MUST, be followed directly, _DIRECTLY_, by its value**    
  
